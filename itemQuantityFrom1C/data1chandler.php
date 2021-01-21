@@ -6,15 +6,15 @@ class Data1cHandler
     const TIMEOUT = 5;
     
     private $url;
-	private $login;
+    private $login;
     private $password;
 
-	public function __construct($url, $login, $password)
-	{
-		$this->url = $url;
+    public function __construct($url, $login, $password)
+    {
+        $this->url = $url;
         $this->login = $login;
         $this->password = $password;
-	}
+    }
 
     public function createSoapClient()
     {
@@ -27,8 +27,8 @@ class Data1cHandler
         );
     }
 
-	public function getItemQuantity($itemParamsArr) 
-	{
+    public function getItemQuantity($itemParamsArr) 
+    {
         $result = $this->createSoapClient()->GetBalans($itemParamsArr);
         $jsResult = $result->return;
         return json_decode($jsResult, true);
